@@ -38781,7 +38781,7 @@ MonoBehaviour:
   songDelayInSeconds: 0
   marginOfError: 0.07
   inputDelayInMilliseconds: 0
-  fileLocation: BGM_Tutorial.mid
+  fileLocation: Champagne_&_Sunshine.mid
   noteTime: 1
   noteSpawnY: 7
   noteTapY: -3
@@ -39118,7 +39118,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 341719723e95aea4aaee72aef0ed9ab1, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a422430234b500648b16911ff60363ee, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
