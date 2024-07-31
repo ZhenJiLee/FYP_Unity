@@ -17,6 +17,7 @@ public class ScoreManager : MonoBehaviour
     {
         Instance = this;
         comboScore = 0;
+        combo = 0;
     }
 
     public static void Hit()
