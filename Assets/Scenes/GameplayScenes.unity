@@ -2139,7 +2139,11 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+<<<<<<< Updated upstream
   m_LocalPosition: {x: -2.2, y: -1.78, z: -9}
+=======
+  m_LocalPosition: {x: -3.18, y: -1.59, z: -9}
+>>>>>>> Stashed changes
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3779,7 +3783,11 @@ Transform:
   m_GameObject: {fileID: 1249535968}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+<<<<<<< Updated upstream
   m_LocalPosition: {x: -2.2, y: -1.78, z: -9}
+=======
+  m_LocalPosition: {x: -3.18, y: -1.59, z: -9}
+>>>>>>> Stashed changes
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -84519,7 +84527,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6632071441885800798, guid: 59a1ad8ce3fc5d142b5bc1593ca1801f, type: 3}
       propertyPath: m_LocalPosition.x
+<<<<<<< Updated upstream
       value: -2.2
+=======
+      value: -3.18
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 6632071441885800798, guid: 59a1ad8ce3fc5d142b5bc1593ca1801f, type: 3}
       propertyPath: m_LocalPosition.y
