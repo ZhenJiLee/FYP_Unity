@@ -78,7 +78,7 @@ public class SongManager : MonoBehaviour
             Debug.LogError($"Error reading MIDI file: {e.Message}");
         }
     }
-    //tested
+    //test
     public void GetDataFromMidi()
     {
         var notes = midiFile.GetNotes();

@@ -75,7 +75,7 @@ public class Blade : MonoBehaviour
         Damageable damageable = player.GetComponent<Damageable>();
         if (damageable != null)
         {
-            Vector2 knockback = Vector2.zero; // 你可以根据需求设置击退效果
+            Vector2 knockback = Vector2.zero; 
             damageable.Hit(baseDamage, knockback);
             Debug.Log("Player hit by BladeSpike, damage: " + baseDamage);
         }
@@ -85,12 +85,12 @@ public class Blade : MonoBehaviour
     {
         while (true)
         {
-            // 切换对象的活动状态
+            
             foreach (GameObject obj in objectsToToggle)
             {
                 obj.SetActive(!obj.activeSelf);
             }
-            // 触发动画
+            
             if (animator != null)
             {
                 animator.SetTrigger("ToggleAnimation");

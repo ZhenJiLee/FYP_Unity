@@ -329,7 +329,7 @@ MonoBehaviour:
   songDelayInSeconds: 0
   marginOfError: 0.07
   inputDelayInMilliseconds: 0
-  fileLocation: BGM_Tutorial.mid
+  fileLocation: Champagne_&_Sunshine.mid
   noteTime: 1
   noteSpawnY: 7
   noteTapY: -3
@@ -518,7 +518,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.74, y: 2.19}
+  m_AnchoredPosition: {x: -0.15, y: 2.19}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &686595314
@@ -1184,7 +1184,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 341719723e95aea4aaee72aef0ed9ab1, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a422430234b500648b16911ff60363ee, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
@@ -1529,6 +1529,7 @@ MonoBehaviour:
   hitSFX: {fileID: 1702190356}
   missSFX: {fileID: 1816092345}
   scoreText: {fileID: 493376586}
+  combo: 0
 --- !u!4 &1801617599
 Transform:
   m_ObjectHideFlags: 0

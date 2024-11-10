@@ -593,7 +593,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &137024592
 RectTransform:
   m_ObjectHideFlags: 0
@@ -861,7 +861,7 @@ MonoBehaviour:
   songDelayInSeconds: 0
   marginOfError: 0.07
   inputDelayInMilliseconds: 0
-  fileLocation: BGM_Tutorial.mid
+  fileLocation: Champagne_&_Sunshine.mid
   noteTime: 1
   noteSpawnY: 7
   noteTapY: -3
@@ -2139,7 +2139,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 188.5, y: -1.59, z: -9}
+  m_LocalPosition: {x: -2.2, y: -1.78, z: -9}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3779,7 +3779,7 @@ Transform:
   m_GameObject: {fileID: 1249535968}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 188.5, y: -1.59, z: -9}
+  m_LocalPosition: {x: -2.2, y: -1.78, z: -9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4582,7 +4582,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 341719723e95aea4aaee72aef0ed9ab1, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a422430234b500648b16911ff60363ee, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
@@ -84267,7 +84267,7 @@ Transform:
   m_GameObject: {fileID: 2026522371}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.03, y: 0.76, z: 4.5}
+  m_LocalPosition: {x: 2.94, y: 0.76, z: 4.5}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -84519,11 +84519,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6632071441885800798, guid: 59a1ad8ce3fc5d142b5bc1593ca1801f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 188.5
+      value: -2.2
       objectReference: {fileID: 0}
     - target: {fileID: 6632071441885800798, guid: 59a1ad8ce3fc5d142b5bc1593ca1801f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.59
+      value: -1.78
       objectReference: {fileID: 0}
     - target: {fileID: 6632071441885800798, guid: 59a1ad8ce3fc5d142b5bc1593ca1801f, type: 3}
       propertyPath: m_LocalPosition.z
