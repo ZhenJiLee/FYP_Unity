@@ -43,4 +43,18 @@ public class SoundManager : MonoBehaviour
     {
         AudioListener.volume = volumeSlider.value / 100f; // 将滑块值缩放到0-1范围并应用
     }
+
+    public void low()
+    {
+        QualitySettings.SetQualityLevel(0);
+    }
+
+    public void med()
+    {
+        QualitySettings.SetQualityLevel(1);
+    }
+    public void high()
+    {
+        QualitySettings.SetQualityLevel(2);
+    }
 }
