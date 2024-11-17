@@ -11,8 +11,13 @@ public class ScoreManager : MonoBehaviour
     public TMPro.TextMeshPro scoreText;
     static int comboScore;
     public int combo;
-
-
+    Damageable playerDamageable;
+    static bool activateInvincibility;
+    private void Awake()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        playerDamageable = player.GetComponent<Damageable>();
+    }
     void Start()
     {
         Instance = this;
@@ -24,6 +29,11 @@ public class ScoreManager : MonoBehaviour
     {
         comboScore += 1; 
         Instance.hitSFX.Play();
+        if(comboScore>=5)
+        {
+            comboScore = 0;
+            activateInvincibility = true;
+        }
     }
     public static void Miss()
     {
@@ -36,5 +46,10 @@ public class ScoreManager : MonoBehaviour
     {
         scoreText.text = comboScore.ToString();
         combo = comboScore;
+        if(activateInvincibility)
+        {
+            activateInvincibility = false;
+            playerDamageable.isInvincibleCombo = true;
+        }
     }
 }

@@ -31,8 +31,11 @@ public class HealthBar : MonoBehaviour
     {
         healthSlider.value = CalculateSliderPercentage(playerDamageable.Health, playerDamageable.MaxHealth);
         healthBarText.text = "HP" + playerDamageable.Health + "/" + playerDamageable.MaxHealth;
-    }
 
+    }
+    private void Update()
+    {
+    }
     private void OnEnable()
     {
         playerDamageable.healthChanged.AddListener(OnPlayerHealthChanged);

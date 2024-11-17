@@ -18,7 +18,7 @@ public class Attack : MonoBehaviour
     }
     private void Update()
     {
-        if(combo!=null)
+/*        if(combo!=null)
         {
             if(currentCombo<combo.combo)
             {
@@ -26,7 +26,7 @@ public class Attack : MonoBehaviour
                 
             }
             combotext.text = "Combo " + currentCombo;
-        }
+        }*/
 
     }
 
