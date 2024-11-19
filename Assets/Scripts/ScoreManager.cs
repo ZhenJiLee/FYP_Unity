@@ -11,13 +11,18 @@ public class ScoreManager : MonoBehaviour
     public TMPro.TextMeshPro scoreText;
     static int comboScore;
     public int combo;
+    private int missCount = 0; 
+    private const int maxMissCount = 6; 
+    private const int healthPenalty = 2;
     Damageable playerDamageable;
     static bool activateInvincibility;
+
     private void Awake()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         playerDamageable = player.GetComponent<Damageable>();
     }
+
     void Start()
     {
         Instance = this;
@@ -27,26 +32,51 @@ public class ScoreManager : MonoBehaviour
 
     public static void Hit()
     {
-        comboScore += 1; 
+        comboScore += 1;
         Instance.hitSFX.Play();
-        if(comboScore>=5)
+        Instance.ResetMissCount(); 
+
+        if (comboScore >= 5)
         {
             comboScore = 0;
             activateInvincibility = true;
         }
     }
+
     public static void Miss()
     {
         comboScore = 0;
         Instance.missSFX.Play();
+        Instance.missCount += 1; 
+
+        
+        if (Instance.missCount >= ScoreManager.maxMissCount) 
+        {
+            Instance.ApplyMissPenalty(); 
+            Instance.ResetMissCount(); 
+        }
     }
-     
+
+    private void ApplyMissPenalty()
+    {
+        if (playerDamageable != null)
+        {
+            playerDamageable.TakeDamage(healthPenalty); 
+            Debug.Log("Missed 6 times! Player takes 2 damage.");
+        }
+    }
+
+    private void ResetMissCount()
+    {
+        missCount = 0; 
+    }
 
     private void Update()
     {
         scoreText.text = comboScore.ToString();
         combo = comboScore;
-        if(activateInvincibility)
+
+        if (activateInvincibility)
         {
             activateInvincibility = false;
             playerDamageable.isInvincibleCombo = true;

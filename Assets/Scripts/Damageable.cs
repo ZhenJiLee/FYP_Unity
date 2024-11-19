@@ -12,7 +12,6 @@ public class Damageable : MonoBehaviour
     public UnityEvent<int, int> healthChanged;
 
     Animator animator;
-
     SpriteRenderer playerSprite;
 
     [SerializeField] Slider healthBar;
@@ -37,7 +36,7 @@ public class Damageable : MonoBehaviour
             if (_health <= 0)
             {
                 IsAlive = false;
-                damageableDeath?.Invoke(); 
+                damageableDeath?.Invoke();
             }
         }
     }
@@ -89,7 +88,7 @@ public class Damageable : MonoBehaviour
         {
             Debug.LogError("Animator component is missing on " + gameObject.name);
         }
-        if(GetComponent<SpriteRenderer>())
+        if (GetComponent<SpriteRenderer>())
         {
             playerSprite = GetComponent<SpriteRenderer>();
         }
@@ -97,33 +96,29 @@ public class Damageable : MonoBehaviour
 
     public void Update()
     {
-        if (isInvincible)//Invincibility after being hit
+        if (isInvincible)
         {
-
             if (timeSinceHit > invincibilityTime)
             {
                 isInvincible = false;
                 timeSinceHit = 0;
-
             }
 
             timeSinceHit += Time.deltaTime;
         }
-        else if(isInvincibleCombo)//Invinsibility after getting high combo
+        else if (isInvincibleCombo)
         {
-            //Make player transparent
             Color temp = playerSprite.color;
             temp.a = .25f;
             playerSprite.color = temp;
             ColorBlock temp2 = healthBar.colors;
-            temp2.disabledColor= new Vector4(1f, 0.98f, 0.75f, 1f);
+            temp2.disabledColor = new Vector4(1f, 0.98f, 0.75f, 1f);
             healthBar.colors = temp2;
+
             if (timeSinceCombo > comboInvincibilityTime)
             {
                 isInvincibleCombo = false;
                 timeSinceCombo = 0;
-
-                //Make player opaque again
                 temp.a = 1f;
                 playerSprite.color = temp;
                 temp2.disabledColor = new Vector4(0.08f, 0.82f, 0.067f, 1f);
@@ -172,4 +167,24 @@ public class Damageable : MonoBehaviour
         }
         return false;
     }
+
+    internal void TakeDamage(int healthPenalty)
+    {
+        Health -= healthPenalty; 
+        healthChanged?.Invoke(Health, MaxHealth); 
+
+        
+        if (animator != null)
+        {
+            animator.SetTrigger("hit"); 
+        }
+
+        
+        if (Health <= 0)
+        {
+            IsAlive = false;
+            damageableDeath?.Invoke(); 
+        }
+    }
+
 }
