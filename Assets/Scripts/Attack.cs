@@ -24,7 +24,7 @@ public class Attack : MonoBehaviour
     }
     private void Update()
     {
-        if (combo != null)
+        if (combo != null && isPlayer)
         {
             if (ScoreManager.canCombo)
             {
