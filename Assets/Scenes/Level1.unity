@@ -3580,7 +3580,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a3f6d762f968e9341a36d16f45ca5cfd, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -89227,7 +89227,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 102536508257366755, guid: 77f974ca0dfcce54d922317977a3a0af, type: 3}
       propertyPath: sceneToLoad
-      value: RhythmLevel1
+      value: Level2
       objectReference: {fileID: 0}
     - target: {fileID: 6425765993983633655, guid: 77f974ca0dfcce54d922317977a3a0af, type: 3}
       propertyPath: m_LocalPosition.x
