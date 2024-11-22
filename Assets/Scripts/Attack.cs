@@ -9,24 +9,41 @@ public class Attack : MonoBehaviour
     public Vector2 knockback = Vector2.zero;
     public bool isPlayer;
     public ScoreManager combo;
-    public static int currentCombo = 0;
+    public int currentCombo = 5;
     public TMP_Text combotext;
+
+    public bool isComboAttack;
+
+    public AudioSource attackPowerUpSound;
+    public ParticleSystem attackPowerUpEffect;
+    //public bool canComboAttack;
     private void Start()
     {
         defaultDamage = attackDamage;
-        currentCombo = 0;
+        currentCombo = 5;
     }
     private void Update()
     {
-/*        if(combo!=null)
+        if (combo != null)
         {
-            if(currentCombo<combo.combo)
+            if (ScoreManager.canCombo)
             {
-                currentCombo = combo.combo;
-                
+                combotext.text = "Attack Power Up Available" ;
             }
-            combotext.text = "Combo " + currentCombo;
-        }*/
+           else
+            {
+                combotext.text = "";
+            }
+/*            if(ScoreManager.canCombo)
+            {
+                canComboAttack = true;
+            }
+            else
+            {
+                canComboAttack = false;
+            }*/
+        }
+
 
     }
 
@@ -40,8 +57,14 @@ public class Attack : MonoBehaviour
             Vector2 deliveredKnockback = transform.parent.localScale.x > 0 ? knockback :new Vector2(-knockback.x, -knockback.y);
             if(isPlayer)
             {
-                attackDamage = attackDamage + currentCombo;
-                currentCombo = 0;
+                if(ScoreManager.isComboAttack)
+                {
+                    attackDamage = attackDamage + currentCombo;
+                    attackPowerUpSound.Play();
+                    attackPowerUpEffect.Play();
+                    ScoreManager.canCombo = false;
+                    ScoreManager.isComboAttack = false;
+                }
             }
             bool gotHit = damageable.Hit(attackDamage, deliveredKnockback);
             if (gotHit) 

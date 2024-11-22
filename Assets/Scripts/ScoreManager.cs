@@ -9,8 +9,10 @@ public class ScoreManager : MonoBehaviour
     public AudioSource hitSFX;
     public AudioSource missSFX;
     public TMPro.TextMeshPro scoreText;
+    public static bool canCombo;
+    public static bool isComboAttack;
+
     static int comboScore;
-    public int combo;
     private int missCount = 0; 
     private const int maxMissCount = 6; 
     private const int healthPenalty = 2;
@@ -27,7 +29,6 @@ public class ScoreManager : MonoBehaviour
     {
         Instance = this;
         comboScore = 0;
-        combo = 0;
     }
 
     public static void Hit()
@@ -40,6 +41,7 @@ public class ScoreManager : MonoBehaviour
         {
             comboScore = 0;
             activateInvincibility = true;
+            canCombo = true;
         }
     }
 
@@ -74,8 +76,6 @@ public class ScoreManager : MonoBehaviour
     private void Update()
     {
         scoreText.text = comboScore.ToString();
-        combo = comboScore;
-
         if (activateInvincibility)
         {
             activateInvincibility = false;

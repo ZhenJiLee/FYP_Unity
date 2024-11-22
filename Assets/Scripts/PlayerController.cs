@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     Vector2 moveInput;
     TouchingDirections touchingDirections;
     Damageable damageable;
-
+    public Attack playerAttacks;
     public float CurrentMoveSpeed
     {
         get
@@ -129,7 +129,6 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         touchingDirections = GetComponent<TouchingDirections>();
         damageable = GetComponent<Damageable>();
-
     }
 
     private void FixedUpdate()
@@ -194,6 +193,18 @@ public class PlayerController : MonoBehaviour
             animator.SetTrigger(AnimationStrings.attackTrigger);
         }
 
+    }
+
+    public void OnPowerUpAttack(InputAction.CallbackContext context)
+    {
+        if(ScoreManager.canCombo)
+        {
+            if (context.started)
+            {
+                ScoreManager.isComboAttack = true;
+                animator.SetTrigger(AnimationStrings.attackTrigger);
+            }
+        }
     }
 
     public void OnRangedAttack(InputAction.CallbackContext context)

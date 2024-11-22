@@ -1070,9 +1070,6 @@ AnimatorStateMachine:
   - {fileID: -3412005438883563853}
   m_EntryTransitions: []
   m_StateMachineTransitions:
-  - first: {fileID: -7964409103647096354}
-    second:
-    - {fileID: -2903793041558305538}
   - first: {fileID: 4098406177789787062}
     second:
     - {fileID: 1113744374958243891}
@@ -1086,6 +1083,9 @@ AnimatorStateMachine:
   - first: {fileID: 2773175492569229619}
     second:
     - {fileID: -4533789608163113169}
+  - first: {fileID: -7964409103647096354}
+    second:
+    - {fileID: -2903793041558305538}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 500, y: 80, z: 0}
   m_EntryPosition: {x: -60, y: 80, z: 0}
@@ -2225,6 +2225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeTime: 0.5
+  fadeDelay: 0
 --- !u!1101 &6343101184058382289
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
