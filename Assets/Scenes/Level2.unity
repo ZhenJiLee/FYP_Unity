@@ -962,6 +962,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 765019248707083841, guid: 59a1ad8ce3fc5d142b5bc1593ca1801f, type: 3}
+      propertyPath: invincibilityUI
+      value: 
+      objectReference: {fileID: 127526920}
+    - target: {fileID: 765019248707083841, guid: 59a1ad8ce3fc5d142b5bc1593ca1801f, type: 3}
+      propertyPath: invincibilitySound
+      value: 
+      objectReference: {fileID: 820626236}
     - target: {fileID: 2156019821396926547, guid: 59a1ad8ce3fc5d142b5bc1593ca1801f, type: 3}
       propertyPath: m_ActionEvents.Array.size
       value: 18

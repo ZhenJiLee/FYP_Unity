@@ -21,6 +21,8 @@ public class ScoreManager : MonoBehaviour
 
     private void Awake()
     {
+        isComboAttack = false;
+        canCombo = false;
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         playerDamageable = player.GetComponent<Damageable>();
     }
@@ -61,7 +63,7 @@ public class ScoreManager : MonoBehaviour
 
     private void ApplyMissPenalty()
     {
-        if (playerDamageable != null)
+        if (playerDamageable != null && !playerDamageable.isInvincibleCombo)
         {
             playerDamageable.TakeDamage(healthPenalty); 
             Debug.Log("Missed 6 times! Player takes 2 damage.");

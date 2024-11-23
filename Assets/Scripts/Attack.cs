@@ -20,7 +20,6 @@ public class Attack : MonoBehaviour
     private void Start()
     {
         defaultDamage = attackDamage;
-        currentCombo = 5;
     }
     private void Update()
     {
