@@ -14,7 +14,7 @@ public class ScoreManager : MonoBehaviour
 
     static int comboScore;
     private int missCount = 0; 
-    private const int maxMissCount = 6; 
+    private const int maxMissCount = 12; 
     private const int healthPenalty = 2;
     Damageable playerDamageable;
     static bool activateInvincibility;

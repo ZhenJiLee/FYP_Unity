@@ -1459,7 +1459,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Prepare for
 
-    the Battle'
+    the Boss Battle'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a28339dd5c1ea1845b8aa9e4ca50f5ba, type: 2}
   m_sharedMaterial: {fileID: -2446946107326511940, guid: a28339dd5c1ea1845b8aa9e4ca50f5ba, type: 2}
