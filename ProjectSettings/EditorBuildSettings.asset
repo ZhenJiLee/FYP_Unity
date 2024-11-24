@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Level2.unity
     guid: b06206c075ca7d14ab09f1576ae78705
   - enabled: 1
-    path: Assets/Scenes/QuiteScene.unity
+    path: Assets/Scenes/EndGameScenes.unity
     guid: 330183596e19de040821c9eaa6a72f28
   - enabled: 1
     path: Assets/Scenes/RhythmLevel1.unity

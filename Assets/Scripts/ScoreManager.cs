@@ -65,10 +65,23 @@ public class ScoreManager : MonoBehaviour
     {
         if (playerDamageable != null && !playerDamageable.isInvincibleCombo)
         {
-            playerDamageable.TakeDamage(healthPenalty); 
-            Debug.Log("Missed 6 times! Player takes 2 damage.");
+            int damage = healthPenalty; 
+            playerDamageable.TakeDamage(damage);
+            Debug.Log($"Missed 10 times! Player takes {damage} damage.");
+
+            
+            UIManager uiManager = FindObjectOfType<UIManager>();
+            if (uiManager != null)
+            {
+                uiManager.CharacterTookDamage(playerDamageable.gameObject, damage); 
+            }
+            else
+            {
+                Debug.LogWarning("UIManager not found. Cannot display damage text.");
+            }
         }
     }
+
 
     private void ResetMissCount()
     {

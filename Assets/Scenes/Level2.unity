@@ -8630,7 +8630,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 102536508257366755, guid: 77f974ca0dfcce54d922317977a3a0af, type: 3}
       propertyPath: sceneToLoad
-      value: RhythmLevel2
+      value: EndGameScenes
+      objectReference: {fileID: 0}
+    - target: {fileID: 3042709583375096406, guid: 77f974ca0dfcce54d922317977a3a0af, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6425765993983633655, guid: 77f974ca0dfcce54d922317977a3a0af, type: 3}
       propertyPath: m_LocalPosition.x
