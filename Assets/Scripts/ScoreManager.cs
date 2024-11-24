@@ -39,7 +39,7 @@ public class ScoreManager : MonoBehaviour
         Instance.hitSFX.Play();
         Instance.ResetMissCount(); 
 
-        if (comboScore >= 5)
+        if (comboScore >= 10)
         {
             comboScore = 0;
             activateInvincibility = true;
