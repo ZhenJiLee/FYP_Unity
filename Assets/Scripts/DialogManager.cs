@@ -10,7 +10,10 @@ public class DialogManager : MonoBehaviour
     public float typingSpeed = 0.05f; 
 
     private Queue<string> dialogQueue; 
-    private Coroutine typingCoroutine; 
+    private Coroutine typingCoroutine;
+
+    [SerializeField] GameObject songManager;
+    [SerializeField] GameObject song;
 
     void Awake()
     {
@@ -25,7 +28,9 @@ public class DialogManager : MonoBehaviour
 
         if (SongManager.Instance != null)
         {
-            SongManager.Instance.PauseSong(); 
+            SongManager.Instance.PauseSong();
+            songManager.SetActive(false);
+            song.SetActive(false);
         }
 
         dialogQueue.Clear(); 
@@ -76,6 +81,8 @@ public class DialogManager : MonoBehaviour
         if (SongManager.Instance != null)
         {
             SongManager.Instance.ResumeSong(); // 确保从暂停位置继续播放音乐
+            songManager.SetActive(true);
+            song.SetActive(true);
         }
 
         // 恢复生成节点的逻辑

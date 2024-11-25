@@ -2390,6 +2390,8 @@ MonoBehaviour:
   dialogPanel: {fileID: 1033199125}
   dialogText: {fileID: 2109814501}
   typingSpeed: 0.025
+  songManager: {fileID: 1154166871}
+  song: {fileID: 367269498}
 --- !u!4 &506706861
 Transform:
   m_ObjectHideFlags: 0
