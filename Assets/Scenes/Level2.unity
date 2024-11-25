@@ -1262,9 +1262,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '+ Gain Invincibility
-
-    + Gain Attack Power Up'
+  m_text: + Gain Invincibility
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8602,6 +8600,7 @@ MonoBehaviour:
   hitSFX: {fileID: 935875568}
   missSFX: {fileID: 1226292396}
   scoreText: {fileID: 1431493745}
+  powerUp: {fileID: 820626236}
 --- !u!4 &1012152343
 Transform:
   m_ObjectHideFlags: 0

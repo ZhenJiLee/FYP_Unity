@@ -24,9 +24,11 @@ public class ScoreManager : MonoBehaviour
     Damageable playerDamageable;
 
     private bool activateInvincibility;
-
+    static AudioSource powerUpSound;
+    [SerializeField]AudioSource powerUp;
     private void Awake()
     {
+        powerUpSound = powerUp;
         isComboAttack = false;
         canCombo = false;
         GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -48,7 +50,8 @@ public class ScoreManager : MonoBehaviour
         
         if (comboScore == comboForAttackBoost)
         {
-            canCombo = true; 
+            canCombo = true;
+            powerUpSound.Play();
             Debug.Log("Combo Attack Boost Ready!");
         }
 
