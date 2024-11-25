@@ -80,12 +80,12 @@ public class DialogManager : MonoBehaviour
 
         if (SongManager.Instance != null)
         {
-            SongManager.Instance.ResumeSong(); // 确保从暂停位置继续播放音乐
+            SongManager.Instance.ResumeSong(); 
             songManager.SetActive(true);
             song.SetActive(true);
         }
 
-        // 恢复生成节点的逻辑
+        
         foreach (var lane in FindObjectsOfType<Lane>())
         {
             lane.enabled = true;

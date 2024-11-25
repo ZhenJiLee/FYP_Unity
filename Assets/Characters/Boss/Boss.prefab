@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkAcceleration: 30
-  maxSpeed: 3
+  maxSpeed: 5
   walkStopRate: 0.05
   attackZone: {fileID: 7910773255367235235}
   cliffDetectionZone: {fileID: 2377413089045860819}
@@ -334,10 +334,13 @@ MonoBehaviour:
   healthChanged:
     m_PersistentCalls:
       m_Calls: []
+  healthBar: {fileID: 0}
   _maxHealth: 300
   _health: 50
   _isAlive: 1
   isInvincible: 0
+  isInvincibleCombo: 0
+  comboInvincibilityTime: 1
   invincibilityTime: 0.25
 --- !u!95 &492237458951349742
 Animator:
@@ -567,3 +570,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackDamage: 15
   knockback: {x: 5, y: 0}
+  isPlayer: 0
+  combo: {fileID: 0}
+  currentCombo: 5
+  combotext: {fileID: 0}
+  isComboAttack: 0
+  attackPowerUpSound: {fileID: 0}
+  attackPowerUpEffect: {fileID: 0}
