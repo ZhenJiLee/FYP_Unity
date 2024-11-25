@@ -1,8 +1,9 @@
 using System.Collections;
-using UnityEngine;
+using System.Collections.Generic;
 using Melanchall.DryWetMidi.Core;
 using Melanchall.DryWetMidi.Interaction;
 using System.IO;
+using UnityEngine;
 using UnityEngine.Networking;
 using System;
 
@@ -15,14 +16,12 @@ public class SongManager : MonoBehaviour
     public double marginOfError;
 
     public int inputDelayInMilliseconds;
-    
-
-    public string fileLocation; 
+    public string fileLocation;
     public float noteTime;
     public float noteSpawnY;
     public float noteTapY;
 
-    public float NoteDespawnY 
+    public float NoteDespawnY
     {
         get
         {
@@ -35,6 +34,7 @@ public class SongManager : MonoBehaviour
     void Start()
     {
         Instance = this;
+
         if (Application.streamingAssetsPath.StartsWith("http://") || Application.streamingAssetsPath.StartsWith("https://"))
         {
             StartCoroutine(ReadFromWebsite());
@@ -65,7 +65,7 @@ public class SongManager : MonoBehaviour
             }
         }
     }
-    //test
+
     private void ReadFromFile()
     {
         try
@@ -78,7 +78,7 @@ public class SongManager : MonoBehaviour
             Debug.LogError($"Error reading MIDI file: {e.Message}");
         }
     }
-    //test
+
     public void GetDataFromMidi()
     {
         var notes = midiFile.GetNotes();
@@ -89,15 +89,33 @@ public class SongManager : MonoBehaviour
 
         Invoke(nameof(StartSong), songDelayInSeconds);
     }
-  
+
     public void StartSong()
     {
-        audioSource.Play();
+        if (!audioSource.isPlaying)
+        {
+            audioSource.Play(); 
+        }
+    }
+
+    public void PauseSong()
+    {
+        if (audioSource.isPlaying)
+        {
+            audioSource.Pause(); 
+        }
+    }
+
+    public void ResumeSong()
+    {
+        if (!audioSource.isPlaying)
+        {
+            audioSource.UnPause(); 
+        }
     }
 
     public static double GetAudioSourceTime()
     {
         return (double)Instance.audioSource.timeSamples / Instance.audioSource.clip.frequency;
     }
-
 }

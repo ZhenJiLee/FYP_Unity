@@ -19,6 +19,7 @@ public class ProjectileLauncher : MonoBehaviour
             origScale.y,
             origScale.z
         );
-    }
 
+        Destroy(projectile, 1.5f); 
+    }
 }

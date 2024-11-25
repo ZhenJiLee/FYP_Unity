@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -9,15 +9,21 @@ public class ScoreManager : MonoBehaviour
     public AudioSource hitSFX;
     public AudioSource missSFX;
     public TMPro.TextMeshPro scoreText;
-    public static bool canCombo;
+
+    public static bool canCombo;  
     public static bool isComboAttack;
 
-    static int comboScore;
-    private int missCount = 0; 
-    private const int maxMissCount = 12; 
+    static int comboScore; 
+    private int missCount = 0;
+    private const int maxMissCount = 12;
     private const int healthPenalty = 2;
+
+    private const int comboForAttackBoost = 5; 
+    private const int comboForInvincibility = 10; 
+
     Damageable playerDamageable;
-    static bool activateInvincibility;
+
+    private bool activateInvincibility;
 
     private void Awake()
     {
@@ -37,27 +43,34 @@ public class ScoreManager : MonoBehaviour
     {
         comboScore += 1;
         Instance.hitSFX.Play();
-        Instance.ResetMissCount(); 
+        Instance.ResetMissCount();
 
-        if (comboScore >= 10)
+        
+        if (comboScore == comboForAttackBoost)
         {
-            comboScore = 0;
-            activateInvincibility = true;
-            canCombo = true;
+            canCombo = true; 
+            Debug.Log("Combo Attack Boost Ready!");
+        }
+
+        
+        if (comboScore >= comboForInvincibility)
+        {
+            comboScore = 0; 
+            Instance.activateInvincibility = true;
+            Debug.Log("Invincibility Activated!");
         }
     }
 
     public static void Miss()
     {
-        comboScore = 0;
+        comboScore = 0; 
         Instance.missSFX.Play();
-        Instance.missCount += 1; 
+        Instance.missCount += 1;
 
-        
-        if (Instance.missCount >= ScoreManager.maxMissCount) 
+        if (Instance.missCount >= ScoreManager.maxMissCount)
         {
-            Instance.ApplyMissPenalty(); 
-            Instance.ResetMissCount(); 
+            Instance.ApplyMissPenalty();
+            Instance.ResetMissCount();
         }
     }
 
@@ -65,15 +78,14 @@ public class ScoreManager : MonoBehaviour
     {
         if (playerDamageable != null && !playerDamageable.isInvincibleCombo)
         {
-            int damage = healthPenalty; 
+            int damage = healthPenalty;
             playerDamageable.TakeDamage(damage);
-            Debug.Log($"Missed 10 times! Player takes {damage} damage.");
+            Debug.Log($"Missed 12 times! Player takes {damage} damage.");
 
-            
             UIManager uiManager = FindObjectOfType<UIManager>();
             if (uiManager != null)
             {
-                uiManager.CharacterTookDamage(playerDamageable.gameObject, damage); 
+                uiManager.CharacterTookDamage(playerDamageable.gameObject, damage);
             }
             else
             {
@@ -82,15 +94,15 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-
     private void ResetMissCount()
     {
-        missCount = 0; 
+        missCount = 0;
     }
 
     private void Update()
     {
         scoreText.text = comboScore.ToString();
+
         if (activateInvincibility)
         {
             activateInvincibility = false;
