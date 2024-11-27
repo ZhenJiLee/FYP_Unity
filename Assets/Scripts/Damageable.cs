@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement; // 导入场景管理
@@ -9,8 +10,9 @@ public class Damageable : MonoBehaviour
 {
     public UnityEvent<int, Vector2> damageableHit;
     public UnityEvent damageableDeath;
+    public static Action playerDeath;
     public UnityEvent<int, int> healthChanged;
-
+    [SerializeField] bool isPlayer;
     Animator animator;
     SpriteRenderer playerSprite;
 
@@ -35,9 +37,16 @@ public class Damageable : MonoBehaviour
             healthChanged?.Invoke(_health, MaxHealth);
             if (_health <= 0)
             {
+                _health = 0;
+                healthChanged?.Invoke(_health, MaxHealth);
+
+                if (isPlayer)
+                {
+                    playerDeath?.Invoke();
+                }
                 IsAlive = false;
                 damageableDeath?.Invoke();
-                EndGameAfterDeath(); // 调用死亡后逻辑
+                //EndGameAfterDeath(); // 调用死亡后逻辑
             }
         }
     }
@@ -183,7 +192,7 @@ public class Damageable : MonoBehaviour
         {
             IsAlive = false;
             damageableDeath?.Invoke();
-            EndGameAfterDeath(); 
+            
         }
     }
 
@@ -194,7 +203,7 @@ public class Damageable : MonoBehaviour
 
     private IEnumerator WaitAndLoadMainMenu()
     {
-        yield return new WaitForSeconds(1f); 
-        SceneManager.LoadScene("MainMenu1"); 
+        yield return new WaitForFixedUpdate();
+        SceneManager.LoadScene("MainMenu1");
     }
 }

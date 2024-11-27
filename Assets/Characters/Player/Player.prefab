@@ -805,6 +805,7 @@ MonoBehaviour:
   healthChanged:
     m_PersistentCalls:
       m_Calls: []
+  isPlayer: 1
   healthBar: {fileID: 0}
   _maxHealth: 100
   _health: 100

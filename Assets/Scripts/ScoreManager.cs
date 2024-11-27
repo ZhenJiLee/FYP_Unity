@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -111,5 +112,24 @@ public class ScoreManager : MonoBehaviour
             activateInvincibility = false;
             playerDamageable.isInvincibleCombo = true;
         }
+    }
+    public void EndGameAfterDeath()
+    {
+        StartCoroutine(WaitAndLoadMainMenu());
+    }
+
+    private IEnumerator WaitAndLoadMainMenu()
+    {
+        yield return new WaitForSeconds(3.5f);
+        SceneManager.LoadScene("MainMenu1");
+    }
+
+    private void OnEnable()
+    {
+        Damageable.playerDeath += EndGameAfterDeath;
+    }
+    private void OnDisable()
+    {
+        Damageable.playerDeath -= EndGameAfterDeath;
     }
 }

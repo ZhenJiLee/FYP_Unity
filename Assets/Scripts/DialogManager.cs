@@ -14,6 +14,7 @@ public class DialogManager : MonoBehaviour
 
     [SerializeField] GameObject songManager;
     [SerializeField] GameObject song;
+    [SerializeField] PauseMenu pause;
 
     void Awake()
     {
@@ -23,6 +24,7 @@ public class DialogManager : MonoBehaviour
 
     public void StartDialog(string[] dialogLines)
     {
+        pause.pauseDisabled = true;
         Time.timeScale = 0f; 
         dialogPanel.SetActive(true);
 
@@ -83,6 +85,7 @@ public class DialogManager : MonoBehaviour
             SongManager.Instance.ResumeSong(); 
             songManager.SetActive(true);
             song.SetActive(true);
+            pause.pauseDisabled = false;
         }
 
         
