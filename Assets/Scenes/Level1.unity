@@ -67684,7 +67684,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab591ec3d53e7ad4eb39c3f77e4f9584, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: {fileID: 0}
   hitSFX: {fileID: 2002113147}
   missSFX: {fileID: 1098250968}
   scoreText: {fileID: 1929554357}
@@ -89656,6 +89655,10 @@ PrefabInstance:
     - target: {fileID: 102536508257366755, guid: 77f974ca0dfcce54d922317977a3a0af, type: 3}
       propertyPath: sceneToLoad
       value: Level2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3042709583375096406, guid: 77f974ca0dfcce54d922317977a3a0af, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6425765993983633655, guid: 77f974ca0dfcce54d922317977a3a0af, type: 3}
       propertyPath: m_LocalPosition.x
