@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
-using System;
+using UnityEngine.SceneManagement; // 导入场景管理
 
 public class Damageable : MonoBehaviour
 {
@@ -37,6 +37,7 @@ public class Damageable : MonoBehaviour
             {
                 IsAlive = false;
                 damageableDeath?.Invoke();
+                EndGameAfterDeath(); // 调用死亡后逻辑
             }
         }
     }
@@ -170,21 +171,30 @@ public class Damageable : MonoBehaviour
 
     internal void TakeDamage(int healthPenalty)
     {
-        Health -= healthPenalty; 
-        healthChanged?.Invoke(Health, MaxHealth); 
+        Health -= healthPenalty;
+        healthChanged?.Invoke(Health, MaxHealth);
 
-        
         if (animator != null)
         {
-            animator.SetTrigger("hit"); 
+            animator.SetTrigger("hit");
         }
 
-        
         if (Health <= 0)
         {
             IsAlive = false;
-            damageableDeath?.Invoke(); 
+            damageableDeath?.Invoke();
+            EndGameAfterDeath(); 
         }
     }
 
+    public void EndGameAfterDeath()
+    {
+        StartCoroutine(WaitAndLoadMainMenu());
+    }
+
+    private IEnumerator WaitAndLoadMainMenu()
+    {
+        yield return new WaitForSeconds(1f); 
+        SceneManager.LoadScene("MainMenu1"); 
+    }
 }
